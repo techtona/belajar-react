@@ -23,6 +23,11 @@ class App extends Component {
         this.refs.nim.focus();
     }
 
+    hapusBaris = (key) => {
+        this.state.mahasiswa.splice(key,1);
+        this.setState({mahasiswa : this.state.mahasiswa});
+    }
+
     render() {
         return (
             <div className="row">
@@ -75,7 +80,7 @@ class App extends Component {
                                             <td>{data.nim}</td>
                                             <td>{data.gender}</td>
                                             <td>
-                                                <input onClick="" type="button" value="Hapus" className="btn btn-sm btn-danger"/>
+                                                <input onClick={()=>this.hapusBaris(key)} type="button" value="Hapus" className="btn btn-sm btn-danger"/>
                                             </td>
                                         </tr>
                                     )
